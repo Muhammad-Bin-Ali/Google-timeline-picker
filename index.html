@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Timeline Picker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Google Timeline Picker</h1>
+            <p>Upload your Timeline.json file, select a date, and download that day's data</p>
+        </header>
+
+        <!-- File Upload Section -->
+        <section class="upload-section">
+            <div class="upload-area" id="uploadArea">
+                <div class="upload-icon">📁</div>
+                <p class="upload-text">Drag & drop Timeline.json here or click to browse</p>
+                <input type="file" id="fileInput" accept=".json" hidden>
+                <button class="browse-btn" id="browseBtn">Browse Files</button>
+            </div>
+            <div class="file-info" id="fileInfo" style="display: none;">
+                <span class="file-name" id="fileName"></span>
+                <span class="file-status">✓ Loaded</span>
+            </div>
+        </section>
+
+        <!-- Calendar Section -->
+        <section class="calendar-section" id="calendarSection" style="display: none;">
+            <div class="calendar-header">
+                <button class="nav-btn" id="prevMonth">‹</button>
+                <h2 id="calendarTitle">Month Year</h2>
+                <button class="nav-btn" id="nextMonth">›</button>
+            </div>
+            <div class="calendar-grid" id="calendarGrid">
+                <!-- Calendar will be generated here -->
+            </div>
+        </section>
+
+        <!-- Preview Section -->
+        <section class="preview-section" id="previewSection" style="display: none;">
+            <h3>Selected Date: <span id="selectedDate"></span></h3>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-label">Total Segments</div>
+                    <div class="stat-value" id="statSegments">-</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Visits</div>
+                    <div class="stat-value" id="statVisits">-</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Activities</div>
+                    <div class="stat-value" id="statActivities">-</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Distance Traveled</div>
+                    <div class="stat-value" id="statDistance">-</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Time Range</div>
+                    <div class="stat-value" id="statTimeRange">-</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Activity Types</div>
+                    <div class="stat-value" id="statActivityTypes">-</div>
+                </div>
+            </div>
+            <button class="download-btn" id="downloadBtn">Download Timeline Data</button>
+        </section>
+
+        <!-- Instructions -->
+        <section class="instructions-section">
+            <h3>How to Use</h3>
+            <ol>
+                <li>Upload your Google Timeline JSON file</li>
+                <li>Browse the calendar and click on a date with available data</li>
+                <li>Review the statistics for that day</li>
+                <li>Click "Download" to get a JSON file for that specific date</li>
+            </ol>
+            <p class="note"><strong>Note:</strong> Segments that span multiple days will be automatically split at midnight boundaries.</p>
+        </section>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
